@@ -1,0 +1,67 @@
+"Phrases"
+{
+	/// Occurred error on plugin start
+	"collision_group_error"
+	{
+		"en"	"Can't find Collision Group offset"
+	}
+
+	/// ConVar's
+	"sm_blockcontrol_description"
+	{
+		"en"	"Control noblock for players, teams, nades, hostages"
+	}
+
+	"sm_blockcontrol_enable"
+	{
+		"en"	"Enable or disabel 'block control' features: '0' - disabled, '1' - enabled"
+	}
+
+	"sm_blockcontrol_noblock_type"
+	{
+		"en"	"Type of used noblock [change can affect to other features]: '0' - disable players noblock (solid players/teams) [need new round to set], '1' - noblock for all players [instant], '2' - team noblock (only teammates noblock) [instant]"
+	}
+
+	"sm_blockcontrol_noblock_crouch"
+	{
+		"en"	"Noblock 'OFF' by player crouch [works only when sm_blockcontrol_noblock_type = '2']: '0' - disabled, '1' - enabled"
+	}
+
+	"sm_blockcontrol_crouch_block_time"
+	{
+		"en"	"Added time in seconds on player change state from crouch, after expires noblock 'ON' [works only when sm_blockcontrol_noblock_crouch = '1']"
+	}
+
+	"sm_blockcontrol_noblock_hostages"
+	{
+		"en"	"Noblock on hostages: '0' - disabled, '1' - enabled"
+	}
+
+	"sm_blockcontrol_noblock_nades"
+	{
+		"en"	"Noblock on nades not colide with team [works only when sm_blockcontrol_noblock_type = '1' or '2']: '0' - disabled, '1' - enabled"
+	}
+
+	"sm_blockcontrol_adverts"
+	{
+		"en"	"Adverts printed in player chat: '0' - disabled, '1' - enabled"
+	}
+
+	/// In game chat
+	"sm_blockcontrol_welcome_message"
+	{
+		"en"		"Noblock on server with: player nb, team nb, nade nb, hostage nb"
+	}
+
+	"sm_blockcontrol_noblock_on"
+	{
+		"#format"	"{1:c}"
+		"en"		"Noblock: {1}ON"
+	}
+
+	"sm_blockcontrol_noblock_off"
+	{
+		"#format"	"{1:c}"
+		"en"		"Noblock: on crouch is {1}OFF"
+	}
+}
