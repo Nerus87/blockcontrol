@@ -60,13 +60,13 @@ char TRANSLATION_ADVERTS[MAX_STRING_LENGHT];
 
 float BLOCK_TIME = 3.0;
 
-Handle sm_bc_enable = INVALID_HANDLE;
-Handle sm_bc_noblock_crouch = INVALID_HANDLE;
-Handle sm_bc_crouch_block_time = INVALID_HANDLE;
-Handle sm_bc_noblock_hostages = INVALID_HANDLE;
-Handle sm_bc_noblock_type = INVALID_HANDLE;
-Handle sm_bc_noblock_nades = INVALID_HANDLE;
-Handle sm_bc_adverts = INVALID_HANDLE;
+Handle sm_blockcontrol_enable = INVALID_HANDLE;
+Handle sm_blockcontrol_noblock_crouch = INVALID_HANDLE;
+Handle sm_blockcontrol_crouch_block_time = INVALID_HANDLE;
+Handle sm_blockcontrol_noblock_hostages = INVALID_HANDLE;
+Handle sm_blockcontrol_noblock_type = INVALID_HANDLE;
+Handle sm_blockcontrol_noblock_nades = INVALID_HANDLE;
+Handle sm_blockcontrol_adverts = INVALID_HANDLE;
 
 public Plugin myinfo = {
 	name = PLUGIN_NAME,
@@ -80,21 +80,21 @@ public void SetTranslation()
 {
 	LoadTranslations("blockcontrol.phrases");
 
-	Format(TRANSLATION_DESCRIPTION, MAX_STRING_LENGHT, "%T", "sm_bc_description", LANG_SERVER);
+	Format(TRANSLATION_DESCRIPTION, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_description", LANG_SERVER);
 
-	Format(TRANSLATION_PLUGIN_ENABLED, MAX_STRING_LENGHT, "%T", "sm_bc_enable", LANG_SERVER);
+	Format(TRANSLATION_PLUGIN_ENABLED, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_enable", LANG_SERVER);
 
-	Format(TRANSLATION_TYPES, MAX_STRING_LENGHT, "%T", "sm_bc_noblock_type", LANG_SERVER);
+	Format(TRANSLATION_TYPES, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_noblock_type", LANG_SERVER);
 
-	Format(TRANSLATION_CROUCH, MAX_STRING_LENGHT, "%T", "sm_bc_noblock_crouch", LANG_SERVER);
+	Format(TRANSLATION_CROUCH, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_noblock_crouch", LANG_SERVER);
 
-	Format(TRANSLATION_BLOCK_TIME, MAX_STRING_LENGHT, "%T", "sm_bc_crouch_block_time", LANG_SERVER);
+	Format(TRANSLATION_BLOCK_TIME, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_crouch_block_time", LANG_SERVER);
 	
-	Format(TRANSLATION_HOSTAGES, MAX_STRING_LENGHT, "%T", "sm_bc_noblock_hostages", LANG_SERVER);
+	Format(TRANSLATION_HOSTAGES, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_noblock_hostages", LANG_SERVER);
 
-	Format(TRANSLATION_NADES, MAX_STRING_LENGHT, "%T", "sm_bc_noblock_nades", LANG_SERVER);
+	Format(TRANSLATION_NADES, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_noblock_nades", LANG_SERVER);
 
-	Format(TRANSLATION_ADVERTS, MAX_STRING_LENGHT, "%T", "sm_bc_adverts", LANG_SERVER);
+	Format(TRANSLATION_ADVERTS, MAX_STRING_LENGHT, "%T", "sm_blockcontrol_adverts", LANG_SERVER);
 }
 
 public void SetValues()
