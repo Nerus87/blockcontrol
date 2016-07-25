@@ -5,7 +5,7 @@
 #pragma newdecls required
 
 #define PLUGIN_NAME				"Block Control"
-#define PLUGIN_VERSION			"v1.0"
+#define PLUGIN_VERSION			"v1.1"
 #define PLUGIN_DESCRIPTION		"Control noblock for players, teams, nades, hostages"
 
 enum COLISIONS_GROPUS
@@ -32,7 +32,7 @@ enum COLISIONS_GROPUS
 }
 
 const int MAX_STRING_LENGHT = 256;
-const int MAX_PREDEFINED_PLAYERS = 32;
+const int MAX_PREDEFINED_PLAYERS = 32 + 1; // 1 is a SourceTV
 
 bool PLUGIN_ENABLED = true;
 bool CROUCH_BLOCK_ENABLED = true;
@@ -68,12 +68,14 @@ Handle sm_blockcontrol_noblock_type = INVALID_HANDLE;
 Handle sm_blockcontrol_noblock_nades = INVALID_HANDLE;
 Handle sm_blockcontrol_adverts = INVALID_HANDLE;
 
+Handle sv_turbophysics = INVALID_HANDLE;
+
 public Plugin myinfo = {
 	name = PLUGIN_NAME,
 	author = "Nerus",
 	description = PLUGIN_DESCRIPTION,
 	version = PLUGIN_VERSION,
-	url = "https://forums.alliedmods.net/"	// uzupełnić
+	url = "https://forums.alliedmods.net/showthread.php?p=2422426"
 };
 
 public void SetTranslation()
@@ -99,15 +101,9 @@ public void SetTranslation()
 
 public void SetValues()
 {
-	OFFSET_COLLISION_GROUP = FindSendPropInfo("CBaseEntity", "m_CollisionGroup");
+	SetOffsetCollisionGroup();
 
-	if (OFFSET_COLLISION_GROUP == -1)
-	{
-		char error[MAX_STRING_LENGHT];
-		Format(error, MAX_STRING_LENGHT, "[BC] ERROR: %T", "collision_group_error", LANG_SERVER);
-
-		SetFailState(error);		
-	}
+	SetTurboPhysics();
 }
 
 public void SetConVars()
@@ -148,8 +144,43 @@ public void SetHooks()
 
 	HookConVarChange(sm_blockcontrol_adverts, OnConVarAdvertsChange);
 
+	/// Game ConVars hooks
+	if(sv_turbophysics != INVALID_HANDLE)
+		HookConVarChange(sv_turbophysics, OnConVarTurboPhysicsChange);
+
 	/// Game Events hooks
 	HookEvent("player_spawn", OnPlayerSpawn);
+}
+
+public void SetOffsetCollisionGroup()
+{
+	OFFSET_COLLISION_GROUP = FindSendPropInfo("CBaseEntity", "m_CollisionGroup");
+
+	if (OFFSET_COLLISION_GROUP == -1)
+	{
+		char error[MAX_STRING_LENGHT];
+		Format(error, MAX_STRING_LENGHT, "[%s] ERROR: %T", PLUGIN_NAME, "collision_group_error", LANG_SERVER);
+
+		SetFailState(error);		
+	}
+}
+
+public void SetTurboPhysics()
+{
+	if(CommandExists("sv_turbophysics"))
+	{
+		sv_turbophysics = FindConVar("sv_turbophysics");
+	
+		if(sv_turbophysics != INVALID_HANDLE)
+			SetConVarInt(sv_turbophysics, 1);
+		else
+		{
+			char error[MAX_STRING_LENGHT];
+			Format(error, MAX_STRING_LENGHT, "[%s] ERROR: %T", PLUGIN_NAME, "sv_turbophysics_error", LANG_SERVER);
+	
+			SetFailState(error);
+		}
+	}
 }
 
 public void OnPluginStart()
@@ -233,6 +264,21 @@ public void OnConVarAdvertsChange(ConVar convar, const char[] oldValue, const ch
 		PLUGIN_ADVERTS_ENABLED = true;
 	else
 		PLUGIN_ADVERTS_ENABLED = false;
+}
+
+public void OnConVarTurboPhysicsChange(ConVar convar, const char[] oldValue, const char[] newValue)
+{
+	int value = StringToInt(newValue);
+
+	if(value < 1) 
+	{
+		SetConVarInt(sv_turbophysics, 1);
+
+		char warn[MAX_STRING_LENGHT];
+		Format(warn, MAX_STRING_LENGHT, "[%s] WARN: %T", PLUGIN_NAME, "sv_turbophysics_warn", LANG_SERVER);
+
+		PrintToServer(warn);
+	}
 }
 
 /*

@@ -6,6 +6,16 @@
 		"en"	"Can't find Collision Group offset"
 	}
 
+	"sv_turbophysics_error"
+	{
+		"en"	"Can't find sv_turbophysics convar, plugin disabled"
+	}
+
+	"sv_turbophysics_warn"
+	{
+		"en"	"Can't disable Turbophysics is forced by 'Block Control' plugin"
+	}
+
 	/// ConVar's
 	"sm_blockcontrol_description"
 	{

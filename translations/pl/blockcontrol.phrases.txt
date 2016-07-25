@@ -6,6 +6,16 @@
 		"pl"	"Nie udało się odnaleźć Collision Group Offset"
 	}
 
+	"sv_turbophysics_error"
+	{
+		"pl"	"Nie udało się odnaleźć komendy sv_turbophysics"
+	}
+
+	"sv_turbophysics_warn"
+	{
+		"pl"	"Nie można wyłączyć turbofizyki jest wymagana przez plugin 'Block Control'"
+	}
+
 	/// ConVar's
 	"sm_blockcontrol_description"
 	{
