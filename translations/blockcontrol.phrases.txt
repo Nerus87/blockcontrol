@@ -6,72 +6,24 @@
 		"en"	"Can't find Collision Group offset"
 	}
 
-	"sv_turbophysics_error"
-	{
-		"en"	"Can't find sv_turbophysics convar, plugin disabled"
-	}
-
-	"sv_turbophysics_warn"
-	{
-		"en"	"Can't disable Turbophysics is forced by 'Block Control' plugin"
-	}
-
 	/// ConVar's
 	"sm_blockcontrol_description"
 	{
-		"en"	"Control noblock for players, teams, nades, hostages"
+		"en"	"Control player colissions with teammates, nades and hostages"
 	}
 
-	"sm_blockcontrol_enable"
+	"sm_blockcontrol"
 	{
-		"en"	"Enable or disabel 'block control' features: '0' - disabled, '1' - enabled"
+		"en"	"Enable or disable plugin: '0' - disabled, '1' - enabled"
 	}
 
-	"sm_blockcontrol_noblock_type"
+	"sm_blockcontrol_debug"
 	{
-		"en"	"Type of used noblock [change can affect to other features]: '0' - disable players noblock (solid players/teams) [need new round to set], '1' - noblock for all players [instant], '2' - team noblock (only teammates noblock) [instant]"
-	}
-
-	"sm_blockcontrol_noblock_crouch"
-	{
-		"en"	"Noblock 'OFF' by player crouch [works only when sm_blockcontrol_noblock_type = '2']: '0' - disabled, '1' - enabled"
-	}
-
-	"sm_blockcontrol_crouch_block_time"
-	{
-		"en"	"Added time in seconds on player change state from crouch, after expires noblock 'ON' [works only when sm_blockcontrol_noblock_crouch = '1']"
+		"en"	"Enable or disable debugging mode: '0' - disabled, '1' - enabled"
 	}
 
 	"sm_blockcontrol_noblock_hostages"
 	{
-		"en"	"Noblock on hostages: '0' - disabled, '1' - enabled"
-	}
-
-	"sm_blockcontrol_noblock_nades"
-	{
-		"en"	"Noblock on nades not colide with team [works only when sm_blockcontrol_noblock_type = '1' or '2']: '0' - disabled, '1' - enabled"
-	}
-
-	"sm_blockcontrol_adverts"
-	{
-		"en"	"Adverts printed in player chat: '0' - disabled, '1' - enabled"
-	}
-
-	/// In game chat
-	"sm_blockcontrol_welcome_message"
-	{
-		"en"		"Noblock on server with: player nb, team nb, nade nb, hostage nb"
-	}
-
-	"sm_blockcontrol_noblock_on"
-	{
-		"#format"	"{1:c}"
-		"en"		"Noblock: {1}ON"
-	}
-
-	"sm_blockcontrol_noblock_off"
-	{
-		"#format"	"{1:c}"
-		"en"		"Noblock: on crouch is {1}OFF"
+		"en"	"Enable or disable players collisions with hostages: '0' - disabled, '1' - enabled"
 	}
 }

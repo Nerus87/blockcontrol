@@ -1,77 +1,28 @@
-"Phrases"
+﻿"Phrases"
 {
-	/// W trakcie wystąpienia błędu
 	"collision_group_error"
 	{
-		"pl"	"Nie udało się odnaleźć Collision Group Offset"
-	}
-
-	"sv_turbophysics_error"
-	{
-		"pl"	"Nie udało się odnaleźć komendy sv_turbophysics"
-	}
-
-	"sv_turbophysics_warn"
-	{
-		"pl"	"Nie można wyłączyć turbofizyki jest wymagana przez plugin 'Block Control'"
+		"pl"	"Nie udalo sie odnalezc Collision Group Offset"
 	}
 
 	/// ConVar's
 	"sm_blockcontrol_description"
 	{
-		"pl"	"Kontroluje blokowanie się: graczy, drużyn, zakładników, granatów"
+		"pl"	"Kontroluje kolizje gracza z: graczami z aktualnej druzyny, zakladnikow, granatow."
 	}
 
-	"sm_blockcontrol_enable"
+	"sm_blockcontrol"
 	{
-		"pl"	"Włącza lub wyłącza funkcjonalność pluginu 'kontrola blokowania': '0' - wyłącza, '1' - włącza"
+		"pl"	"Wlacza lub wylacza plugin: '0' - wylacza, '1' - wlacza"
 	}
 
-	"sm_blockcontrol_noblock_type"
+	"sm_blockcontrol_debug"
 	{
-		"pl"	"Typ kontroli blokady [wpływa na inne funkcje]: '0' - wyłącza blokowanie się graczy [nowa runda], '1' - włącza brak blokady na wszystkich graczach [natychmiast], '2' - brak blokowania graczy z tej samej drużyny [natychmiast]"
-	}
-
-	"sm_blockcontrol_noblock_crouch"
-	{
-		"pl"	"Wyłącza blokowanie przez kucnięcie [działa tylko gdy sm_blockcontrol_noblock_type = '2']: '0' - funkcja wyłączona, '1' - funkcja wyłączona"
-	}
-
-	"sm_blockcontrol_crouch_block_time"
-	{
-		"pl"	"Czas dodatkowy od momentu zmiany pozycji gracza po kucnięciu, po wygaśnięciu bkolada zostaje wyłączona [działa tylko gdy sm_blockcontrol_noblock_crouch = '1']: Min: 0.1 [natychmist], Max: 0.1+"
+		"pl"	"Wlacza lub wylacza tryb debugowania: '0' - wylacza, '1' - wlacza"
 	}
 
 	"sm_blockcontrol_noblock_hostages"
 	{
-		"pl"	"Bkokada działająca na zakładników: '0' - funkcjonalność wyłączona, '1' - funkcjonalność włączona"
-	}
-
-	"sm_blockcontrol_noblock_nades"
-	{
-		"pl"	"Brak blokady granatów w trakcie kolizji z graczem [działa tylko gdy sm_blockcontrol_noblock_type = '1' (przelatuje przez wszystkich) lub '2' (przelatuje tylko przez graczy z drużyny)]: '0' - funkcjonalność wyłączona, '1' - funkcjonalność włączona"
-	}
-
-	"sm_blockcontrol_adverts"
-	{
-		"pl"	"Informacja wyświetla na na czacie gracza: '0' - funkcjonalność wyłączona, '1' - funkcjonalność włączona"
-	}
-
-	/// Na czacie w grze
-	"sm_blockcontrol_welcome_message"
-	{
-		"pl"		"Na serwerze znajduje się kontrola blokowania postaci, drużyn, zakładników oraz granatów"
-	}
-
-	"sm_blockcontrol_noblock_on"
-	{
-		"#format"	"{1:c}"
-		"pl"		"Kontrola blokowania: {1}Wyłączona"
-	}
-
-	"sm_blockcontrol_noblock_off"
-	{
-		"#format"	"{1:c}"
-		"pl"		"Kontrola blokowania podczas kucania: {1}Włączona"
+		"pl"	"Wlacza lub wylacza kolizje graczy z zakladnikami: '0' - wylacza, '1' - wlacza"
 	}
 }
